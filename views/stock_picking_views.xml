@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_picking_form_inherit_delivery_je" model="ir.ui.view">
+    <field name="name">stock.picking.form.inherit.delivery.je</field>
+    <field name="model">stock.picking</field>
+    <field name="inherit_id" ref="stock.view_picking_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//sheet" position="inside">
+        <group>
+          <field name="out_move_id"
+                 string="Asiento de Diario (Entrega)"
+                 readonly="1"
+                 optional="show"/>
+          <field name="in_move_id"
+                 string="Asiento de Diario (Recepción/Retorno)"
+                 readonly="1"
+                 optional="show"/>
+        </group>
+      </xpath>
+      <xpath expr="//page[@name='operations']//field[@name='move_ids']/list" position="inside">
+        <field name="account_id"
+               string="Cuenta Contable"
+               options="{'no_create': True}"
+               readonly="parent.state in ('done','cancel')"
+               optional="show"/>
+        <field name="analytic_distribution"
+               string="Distribución Analítica"
+               widget="analytic_distribution"
+               options="{'force_applicability': 'optional'}"
+               readonly="parent.state in ('done','cancel')"
+               optional="show"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

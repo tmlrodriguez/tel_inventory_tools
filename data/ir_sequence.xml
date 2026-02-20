@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="seq_inventory_revaluation" model="ir.sequence">
+        <field name="name">Inventory Revaluation</field>
+        <field name="code">inventory.revaluation</field>
+        <field name="prefix">IRV/%(year)s/%(month)s/</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+</odoo>
